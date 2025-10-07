@@ -3,18 +3,18 @@
 
 $servername = "localhost";
 $username   = "root";          
-$password   = "sqlvlp@1";              
-$database   = "user_auth";
-$port       = 3306;            // use 3306 confirmed from your test
+$password   = " "; // (I don't want to show my password here)              
+$database   = "userdb";
+$port       = 3306;            // working port
 
 // Try connection
 $conn = @new mysqli($servername, $username, $password, $database, $port);
 
 // Check result
 if ($conn->connect_error) {
-    die("❌ Connection failed on port $port: " . $conn->connect_error);
+    die("Connection failed on port $port: " . $conn->connect_error);
 } else {
-    echo "✅ Connected successfully to MySQL on port $port!<br>";
+    echo "Connected successfully to MySQL on port $port!<br>";
     echo "Server info: " . $conn->server_info;
 }
 
