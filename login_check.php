@@ -1,11 +1,11 @@
 <?php
-include 'db_connect.php'; // your working connection
+include 'db_connect.php'; // working connection
 
 $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Step 1: check if user exists
-$sql = "SELECT * FROM users WHERE username = ?";
+$sql = "SELECT * FROM user WHERE username = ?"; // if not work, change from username to name
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $username);
 $stmt->execute();
@@ -16,12 +16,12 @@ if ($result->num_rows === 1) {
     $user = $result->fetch_assoc();
 
     if (password_verify($password, $user['password'])) {
-        echo "✅ Login successful!";
+        echo "Login successful!";
     } else {
-        echo "❌ Incorrect password.";
+        echo "Incorrect password.";
     }
 } else {
-    echo "⚠️ Username not found.";
+    echo "Username not found.";
 }
 
 $stmt->close();
