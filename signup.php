@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $message = "Password must be at least 8 characters.";
     } else {
         // Check duplicates (efficiently)
-        $checkSql = "SELECT id FROM user WHERE email = ? OR name = ?";
+        $checkSql = "SELECT id FROM user WHERE email = ? OR name = ?"; // if not work, change from name to username
         if ($checkStmt = $conn->prepare($checkSql)) {
             $checkStmt->bind_param("ss", $email, $username);
             $checkStmt->execute();
