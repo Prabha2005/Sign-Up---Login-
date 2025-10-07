@@ -24,5 +24,5 @@ foreach ($users as $u) {
     $stmt->execute();
 }
 
-echo "✅ All users inserted securely with hashed passwords!";
+echo "All users inserted securely with hashed passwords!";
 ?>
